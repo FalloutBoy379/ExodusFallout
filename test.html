@@ -1,0 +1,38 @@
+    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<style>
+#yea {
+    margin-left: 100px;
+    height: 100px;
+    width: 100px;
+    background: blue;
+    border: 1px black solid;
+}
+</style>
+</head>
+<body>
+<div id='yea'></div>
+<input type="button" value="Capacity Chart" onclick="animateMe();" >
+<script>
+
+function animateLeft(obj, from, to){
+   if(from >= to){         
+       obj.style.visibility = 'hidden';
+       return;  
+   }
+   else {
+       var box = obj;
+       box.style.marginLeft = from + "px";
+       setTimeout(function(){
+           animateLeft(obj, from + 1, to);
+       }, 25) 
+   }
+}
+
+function animateMe() {
+animateLeft(document.getElementById('yea'), 100, 700);
+}
+</script>
+</body>
+</html>

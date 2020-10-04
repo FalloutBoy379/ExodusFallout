@@ -1,0 +1,129 @@
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+	<title>Exodus | ExoShips</title>
+	<meta
+	<link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+	<style type="text/css">
+		@font-face{
+			font-family:"Orbitron";
+			src:url("orbitron.ttf");
+		}
+		@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+		@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+		@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+		.fade-in {
+			opacity:0;  
+			-webkit-animation:fadeIn ease-in 1;  
+			-moz-animation:fadeIn ease-in 1;
+			animation:fadeIn ease-in 1;
+
+			-webkit-animation-fill-mode:forwards;  
+			-moz-animation-fill-mode:forwards;
+			animation-fill-mode:forwards;
+
+			-webkit-animation-duration:2s;
+			-moz-animation-duration:2s;
+			animation-duration:2s;
+		}
+		.fade-in.one {
+			-webkit-animation-delay: 1s;
+			-moz-animation-delay:1s;
+			animation-delay: 1s;
+		}
+		.fade-in.two {
+			-webkit-animation-delay: 1.5s;
+			-moz-animation-delay:1.5s;
+			animation-delay: 1.5s;
+		}
+	
+		.logo{
+			padding:0;
+			width: 300px;
+			height:auto;
+			text-align:center;
+			margin:auto;
+		}
+		
+		#logo{
+			  display: block;
+			  margin-left: auto;
+			  margin-right: auto;
+			  width: 100%;
+				-webkit-transition: all .1s ease-in;
+			-moz-transition: all .1s ease-in;
+			-ms-transition: all .1s ease-in;
+			-o-transition: all .1s ease-in;
+			transition: all .1s ease-in;
+		}
+		#logo:hover{
+			width:102%;
+		}
+
+		body {
+		  background-image: url('970438.jpg');
+		  background-repeat: no-repeat;
+		  background-size: 100% 100%;
+		  overflow-y:hidden;
+		  
+				 
+		}
+
+		.container {  
+			width: 100%;  
+			height: 100%;  
+			display: flex;  
+			justify-content: center;  
+			align-items: center;  
+		}
+		
+		a {  
+			  
+			font-size: 25px;
+			font-family: 'Orbitron', sans-serif;
+			letter-spacing:normal;
+			-webkit-transition: all .1s ease-in;
+			-moz-transition: all .1s ease-in;
+			-ms-transition: all .1s ease-in;
+			-o-transition: all .1s ease-in;
+			transition: all .1s ease-in;
+			text-decoration:none;
+		}    
+		#page1{
+			margin-right:40px;
+			color:orange;
+		}
+		#page2{
+			margin-left:40px;
+			color:brown;
+		}
+		#page1:hover{
+			letter-spacing:0.05em;
+		}
+		#page2:hover{
+			letter-spacing:0.05em;
+		}
+  
+ 
+	</style>
+</head>
+<body>
+	<div class="logo fade-in">
+		<a href="#">
+			<img id="logo" src="logowhite.png">
+		</a>
+	</div>
+	<div class="container">  
+		<a id="page1" class="fade-in one" href="mainpage.html">Home</a>
+		<a id="page2" class="fade-in two" href="booking.html">Booking</a>  
+	</div>  
+	
+	<script type="text/javascript">
+		
+	window.onbeforeunload = function () {
+		window.scrollTo(0, 0);
+	}
+	
+	</script>
+</body>

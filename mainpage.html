@@ -1,0 +1,379 @@
+<html>
+	
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Welcome- EXOShips</title>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style type="text/css">
+		::-webkit-scrollbar {
+		  width: 15px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background:#757762;
+		  opacity:0.5;
+		  z-index:1000;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: orange;
+		  border-radius:15px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background: #82632d;
+		}
+		
+		
+		@font-face {
+				font-family: Ailerons;
+				src: url("Ailerons.otf") format("opentype");
+		}
+		@font-face{
+				font-family: Simplifica;
+				src: url("simplifica.ttf");
+		}
+			body{
+				margin:0px;
+			}
+			.topnav {
+			  overflow: hidden;
+			  background-image: linear-gradient(to right, #3A3227, #757762, #51422D);
+			  font-family:"Orbitron", sans-serif;
+			}
+
+			.topnav a {
+			  float: right;
+			  display: block;
+			  color: white;
+			  text-shadow: 0px 2px 20px black;
+			  text-align: center;
+			  padding: 21px 16px;
+			  text-decoration: none;
+			  font-size: 20px;
+			  -webkit-transition: all .1s ease-in;
+			-moz-transition: all .1s ease-in;
+			-ms-transition: all .1s ease-in;
+			-o-transition: all .1s ease-in;
+			transition: all .1s ease-in;
+			}
+
+			.topnav a:hover {
+			  letter-spacing:0.1em;
+			}
+
+			.topnav a.active {
+			  background-color: orange;
+			  color: black;
+			}
+			.topnav .icon {
+			  display: none;
+			  height:21px;
+			}
+
+			@media screen and (max-width: 600px) {
+			  .topnav a:not(:first-child) {display: none;}
+			  .topnav a.icon {
+				float: right;
+				display: block;
+			  }
+			}
+
+			@media screen and (max-width: 600px) {
+			  .topnav.responsive {position: relative;}
+			  .topnav.responsive .icon {
+				position: absolute;
+				right: 0;
+				top: 0;
+			  }
+			  .topnav.responsive a {
+				float: none;
+				display: block;
+				text-align: left;
+			  }
+			}
+			#navlogo{
+				width:200px;
+				padding:10px;
+			}
+			
+			.sticky {
+				  position: fixed;
+				  top: 0;
+				  width: 100%;
+			}
+			.body1{
+				background-color:black;
+				grid-row:2/3;
+				grid-column:1/5;
+				text-align:center;
+				
+			}
+			.body2{
+				background-color:orange;
+				color:black;
+				grid-row:3/4;
+				grid-column:1/3;
+				
+			}
+			.container1 {
+				background-image: url('970438.jpg');
+				background-repeat: no-repeat;
+				height:100%;
+				background-attachment: fixed;
+				background-position: center;
+				background-repeat: repeat;
+				background-size: cover;
+				display:grid;
+				grid-template-columns: 25% 25% 25% 25%;
+				grid-template-rows:50px 100px auto 50px auto;
+				}
+			.scrollpart{
+				font-family:Ailerons;
+				font-size:250%;
+				width:100%;
+				background-color:black;
+				color:orange;
+			}
+			.abouttitle {
+				margin-left:20px;
+				font-family:"Ailerons";
+			}
+			.abouttext{
+				margin-left:20px;
+				font-family:"Oswald";
+			}
+			.shuttleimg{
+				grid-row:3/4;
+				grid-column:3/6;
+				background-color:orange;
+				
+			}
+			#shuttleimg{
+				float:right;
+				height:100%;
+			}
+			.flightdeck{
+				grid-row:5/6;
+				grid-column:1/6;
+				background-color:orange;
+				display:grid;
+				grid-template-columns:10% 40% 50%;
+				grid-template-rows:auto 90px 90px 90px 90px 90px;
+			}
+			.emptyspace{
+				grid-row:6/7;
+				grid-column:1/6;
+			}
+			.flightname{
+				grid-column:2/3;
+				font-family:"Ailerons";
+				font-size:140%;
+			}
+			.flightname .head{
+				grid-row:1/2;
+				font-size:180%;
+			}
+			.flightname p{
+				font-size:150%;
+			}
+			.one{
+				grid-row: 2/3;
+			}
+			.two{
+				grid-row:3/4;
+			}
+			.three{
+				grid-row:4/5
+			}
+			.four{
+				grid-row:5/6;
+			}
+			.flightorigin{
+				grid-column:3/4;
+				font-family:"Ailerons";
+				font-size:140%;
+			}
+			.flightorigin .head{
+				grid-row:1/2;
+			}
+			.flightorigin p{
+				font-size:150%;
+			}
+			.available{
+				background-color:green;
+				color:white;
+			}
+			@media only screen and (max-device-width: 640px) {
+				.container1 {
+					background-attachment: scroll;
+			}
+			}
+			@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+			@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+			@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+			.fade-in {
+				opacity:0;  
+				-webkit-animation:fadeIn ease-in 1;  
+				-moz-animation:fadeIn ease-in 1;
+				animation:fadeIn ease-in 1;
+
+				-webkit-animation-fill-mode:forwards;  
+				-moz-animation-fill-mode:forwards;
+				animation-fill-mode:forwards;
+
+				-webkit- animation-direction: alternate;
+				-moz- animation-direction: alternate;
+				 animation-direction: alternate;
+
+				-webkit-animation-iteration-count: infinite;
+				-moz-animation-iteration-count: infinite;
+				 animation-iteration-count: infinite;
+
+				-webkit-animation-duration:1s;
+				-moz-animation-duration:1s;
+				animation-duration:1s;
+			}
+			#loader {
+			  
+			  z-index: 1;
+			  width: 50%;
+			  height: 50%;
+			  position:absolute;
+			  top:30%;
+			  left:25%;
+			}
+			#loader img{
+				width:100%;
+			}
+
+			@-webkit-keyframes fade {
+			  0% { -webkit-transform: scale(100%, 100%); }
+			  100% { -webkit-transform: scale(120%, 120%); }
+			}
+
+			@keyframes fade {
+			  0% { transform: scale(100%, 100%); }
+			  100% { transform: scale(120%, 120%); }
+			}
+
+			/* Add animation to "page content" */
+			.animate-bottom {
+			  position: relative;
+			  -webkit-animation-name: animatebottom;
+			  -webkit-animation-duration: 1s;
+			  animation-name: animatebottom;
+			  animation-duration: 1s
+			}
+
+			@-webkit-keyframes animatebottom {
+			  from { bottom:-100px; opacity:0 } 
+			  to { bottom:0px; opacity:1 }
+			}
+
+			@keyframes animatebottom { 
+			  from{ bottom:-100px; opacity:0 } 
+			  to{ bottom:0; opacity:1 }
+			}
+
+			#myDiv {
+			  display: none;
+			}
+			.navailable{
+				background-color:red;
+				color:white;
+			}
+	</style>
+	</head>
+	<body onload = "myFunction()">
+		<div id="loader" class="fade-in"><img src="logo.png"></div>
+	<div id="myDiv">	
+		<div class="topnav" id="myTopnav">
+			<img src="logowhite.png" id="navlogo">
+			  <a href="booking.html">Booking</a>
+			  <a href="fleet.html">Fleet</a>
+			  <a href="mainpage.html" class="active">Home</a>
+			  <a href="javascript:void(0);" class="icon" onclick="Function()">
+				<i class="fa fa-bars"></i>
+			  </a>
+		</div>
+		<div class="container1">
+			<div class="body1 inAnimate">
+			
+				<h1 class="scrollpart"><strong>Connecting Exodus using our highly capable fleet</strong></h1>
+			
+			</div>
+			<div class="body2">
+				<h1 class="abouttitle">About</h1>
+				<p class="abouttext">ExoShips was founded in 2012 when the Scientific Communities of Earth had expressed the need for the private sector to join the race towards making space transports capable of evacuating areas quickly.<br> The first vessel made was a shuttle to carry the citizens to and from the main vessel, which was an Elon Class Vessel at the time.</p>
+				<p class="abouttext">After developing a few dozen prototypes, ExoShips Engineers hit the mark. A new engine had been made which would be capable of helping humans colonize the universe.<br><br>5 years after the establishment of the company, the apocalypse arrived upon the planet. The spacecraft, controlled and maintained by it's crew of 940 people, managed to save 40% of the world's population by making repeated journeys from the Exodus habitats to Earth over a few days.</p>
+			</div>
+			<div class="shuttleimg">
+				<img id="shuttleimg" src="spaceship.jpg">
+			</div>
+			<div class="flightdeck">
+				<div class="flightname head">
+					<p>Transport Class</p>
+				</div>
+				<div class="flightname one">
+					<span>Elon Class</span>
+				</div>
+				<div class="flightname two">
+					<span>Bond Class</span>
+				</div>
+				<div  class="flightname three">
+					<span>Vader Class</span>
+				</div>
+				<div  class="flightname four">
+					<span>Indiana Class</span>
+				</div>
+				<div class="flightorigin head">
+					<p>Routes Status</p>
+				</div>
+				<div class="flightorigin one">
+					<span class="available">All Available</span>
+				</div>
+				<div class="flightorigin two">
+					<span class="available">All Available</span>
+				</div>
+				<div class="flightorigin three">
+					<span class="available">All Available</span>
+				</div>
+				<div class="flightorigin four">
+					<span class="navailable">No Civilians</span>
+				</div>
+			</div>
+		</div>
+	</div>	
+		<script>
+		function Function() {
+		  var x = document.getElementById("myTopnav");
+		  if (x.className === "topnav") {
+			x.className += " responsive";
+		  } else {
+			x.className = "topnav";
+		  }
+		}
+		
+		function myFunction() {
+			myVar = setTimeout(loaded, 1000);
+		}
+		function loaded(){
+			myVar2 = setTimeout(showPage, 100);
+		}
+		function showPage() {
+		  document.getElementById("loader").style.display = "none";
+		  document.getElementById("myDiv").style.display = "block";
+		}
+				
+		</script>
+
+	</body>
+</html>

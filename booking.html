@@ -1,0 +1,872 @@
+<html>
+	<head>
+		<title>ExoShips | Bookings</title>
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Piazzolla:wght@200;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<style type="text/css">
+		::-webkit-scrollbar {
+		  width: 15px;
+		}
+
+		/* Track */
+		::-webkit-scrollbar-track {
+		  background:#757762;
+		  opacity:0.5;
+		  z-index:1000;
+		}
+
+		/* Handle */
+		::-webkit-scrollbar-thumb {
+		  background: #ff8400;
+		  border-radius:15px;
+		}
+
+		/* Handle on hover */
+		::-webkit-scrollbar-thumb:hover {
+		  background:orange;
+		}
+		
+		* {
+		  box-sizing: border-box;
+		}
+			html{
+				scroll-behaviour = smooth;
+			}
+			@font-face {
+				font-family: Ailerons;
+				src: url("Ailerons.otf") format("opentype");
+			}
+			@font-face{
+				font-family: Simplifica;
+				src: url("simplifica.ttf");
+			}
+			body{
+				margin:0px;
+			}
+			.topnav {
+			  overflow: hidden;
+			  background-image: linear-gradient(to right, #3A3227, #757762, #51422D);
+			  font-family:"Orbitron", sans-serif;
+			}
+
+			.topnav a {
+			  float: right;
+			  display: block;
+			  color: white;
+			  text-shadow: 0px 2px 20px black;
+			  text-align: center;
+			  padding: 21px 16px;
+			  text-decoration: none;
+			  font-size: 20px;
+			  -webkit-transition: all .1s ease-in;
+			-moz-transition: all .1s ease-in;
+			-ms-transition: all .1s ease-in;
+			-o-transition: all .1s ease-in;
+			transition: all .1s ease-in;
+			}
+
+			.topnav a:hover {
+			  letter-spacing:0.1em;
+			}
+
+			.topnav a.active {
+			  background-color: orange;
+			  color: black;
+			}
+
+			.topnav .icon {
+			  display: none;
+			  height:21px;
+			}
+
+			@media screen and (max-width: 600px) {
+			  .topnav a:not(:first-child) {display: none;}
+			  .topnav a.icon {
+				float: right;
+				display: block;
+			  }
+			}
+
+			@media screen and (max-width: 600px) {
+			  .topnav.responsive {position: relative;}
+			  .topnav.responsive .icon {
+				position: absolute;
+				right: 0;
+				top: 0;
+			  }
+			  .topnav.responsive a {
+				float: none;
+				display: block;
+				text-align: left;
+			  }
+			}
+			#navlogo{
+				width:200px;
+				padding:10px;
+			}
+			
+			.sticky {
+				  position: fixed;
+				  top: 0;
+				  width: 100%;
+			}
+			.container1{
+				padding:50px;
+				border-top: 1px grey solid;				
+			}
+			h1, h3{
+			font-family:Ailerons;
+			font-size:300%;
+			}
+			.pageHeading{
+				text-align:center;
+			}
+			.pageHeading p, h2{
+				font-family: 'Oswald', sans-serif;
+				font-weight:strong;
+				font-size: 20px;
+			}
+			#step1 button{
+				font-family:"Ailerons";
+				background-color:black;
+				color:white;
+				font-size:1.1em;
+				border:none;
+				transition:letter-spacing 0.2s;
+			}
+			#step1 button:hover{
+				letter-spacing:0.05em;
+			}
+			
+		
+			.destinationlist{
+				padding:30px;
+			}
+			.grid-container-dest{
+				display:grid;
+				grid-template-columns: 25% 50% 25%;
+			}
+			.grid-container-dest2{
+				display:grid;
+				grid-template-columns: 50%  50%;
+			}
+			.grid-item {
+				padding: 20px;
+				font-size: 30px;
+				margin:auto 0;
+				text-align: center;
+			}
+			.grid-item.heading{
+				font-family:"Ailerons";
+				height: 160px;
+			}
+			.page1{
+				background-color:orange;
+			}
+			.page2{
+				background-color:orange;
+				border-top:grey 1px solid;
+			}
+			ol{
+				font-family:"Ailerons";
+			}
+			#overlay {
+			  position: fixed; /* Sit on top of the page content */
+			  display: none; /* Hidden by default */
+			  width: 100%; /* Full width (cover the whole page) */
+			  height: 100%; /* Full height (cover the whole page) */
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  color:white;
+			  bottom: 0;
+			  background-color: rgba(0,0,0,0.8); /* Black background with opacity */
+			  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+			  cursor: pointer; /* Add a pointer on hover */
+			}
+			#text{
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  color: white;
+			  transform: translate(-50%,-50%);
+			  -ms-transform: translate(-50%,-50%);
+			  font-size:30px !important;
+			  background-color:rgba(0,0,0,0.5);
+			  padding:50px;
+			  border-radius:10%;
+			}
+			#text sup{
+				font-size:40%;
+				font-family: 'Oswald', sans-serif;
+			}
+			.font{
+				font-family:"Ailerons";
+			}
+			#source, #dest{
+				border:2px solid grey;
+				background-color:black;
+				max-width:100%;
+				font-family:'Oswald', sans-serif;
+				color:white;
+				font-size:20px;
+			}
+			#next1{
+				padding:10px;
+				background-color:white;
+				color:black;
+				font-family:"Ailerons";
+				font-size:0.8em;
+				border:none;
+				border-radius:20px;
+				text-decoration:none;
+			}
+			#calculate1{
+				padding:10px;
+				background-color:white;
+				color:black;
+				font-family:"Ailerons";
+				font-size:0.8em;
+				border:none;
+				border-radius:20px;
+			}
+			.grid-item{
+				padding:20px;
+			}
+			.grid-item.input{
+				padding:20px !important;
+			}
+			.grid-item.button1{
+				grid-row-start:3;
+				grid-column-start: 2;
+				grid-column-end: 3;
+			}
+			.grid-item.button2{
+				grid-row-start:3;
+				grid-column-start: 3;
+				grid-column-end: 4;
+			}
+			#error{
+				color: red;
+				background-color:#f99d9d;
+				font-family: 'Oswald', sans-serif;
+				font-size: 20px;
+				padding: 5px;
+				border-radius:10px;
+				display:none;
+			}
+			.credits{
+				width:1.5em;
+				position:relative;
+				top:10px;
+			}
+			.grid-item.price{
+				font-family:"Ailerons";
+				height:100px;
+			}
+			.grid-item.ships{
+				font-family:"Ailerons";
+				height:100px;
+				transition: background-color 0.4s;
+				transition: color 0.1s;
+			}
+			.blackrow{
+				color:white;
+				background-color:black;
+			}
+			.ships:hover{
+				background-color:grey;
+				color:white;
+			}
+			.greyrow{
+				background-color:#1E1D1D;
+				color:white;
+			}
+			.grid-item.pricerow{
+				grid-column-start: 1;
+				grid-column-end: 3;
+				font-family:"Ailerons";
+				font-weight:1000;
+			}
+			/* Style inputs, select elements and textareas */
+			input, select, textarea{
+			  width: 100%;
+			  padding: 12px;
+			  border: 1px solid #ccc;
+			  border-radius: 4px;
+			  box-sizing: border-box;
+			  resize: none;
+			}
+			input[type=submit]{
+				width:30% !important;
+			}
+
+			/* Style the label to display next to the inputs */
+			label {
+			  padding: 12px 12px 12px 0;
+			  display: inline-block;
+			}
+
+			/* Style the submit button */
+			input[type=submit] {
+			  background-color: orange;
+			  color: black;
+			  padding: 10px 10px;
+			  font-size:20px;
+			  border: none;
+			  margin-top:20px;
+			  border-radius: 4px;
+			  cursor: pointer;
+			  float: right;
+			font-family:"Ailerons";
+			}
+
+			/* Style the container */
+			.container {
+			  border-radius: 5px;
+			  background-color: black;
+			  color:white;
+			  font-family:"Ailerons";
+			  font-size:20px;
+			  padding: 20px;
+			}
+
+			/* Floating column for labels: 25% width */
+			.col-25 {
+			  float: left;
+			  width: 25%;
+			  margin-top: 30px;
+			}
+
+			/* Floating column for inputs: 75% width */
+			.col-75 {
+			  float: left;
+			  width: 75%;
+			  margin-top: 30px;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			#priceaddon{
+				background-color:orange;
+				color:black;
+				font-family:"Ailerons";
+				padding:2px;
+				margin-top: 20px;
+			}
+
+			/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+			@media screen and (max-width: 600px) {
+			  .col-25, .col-75, input[type=submit] {
+				width: 100%;
+				margin-top: 0;
+			  }
+			}
+			
+			/* The Overlay (background) */
+			.invoice-overlay {
+			  /* Height & width depends on how you want to reveal the overlay (see JS below) */   
+			  height: 100%;
+			  width: 0;
+			  position: fixed; /* Stay in place */
+			  z-index: 1; /* Sit on top */
+			  left: 0;
+			  top: 0;
+			  display: flex;
+			  justify-content:center;
+			  align-content:center;
+			  background-color: rgb(0,0,0); /* Black fallback color */
+			  background-color: rgba(0,0,0, 0.9); /* Black w/opacity */
+			  overflow-x: hidden; /* Disable horizontal scroll */
+			  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+			}
+
+			.invoice-content {
+				display:grid;
+				grid-template-columns: 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3% 8.3%;
+				grid-template-rows: 100px 100px 50px 50px 50px 60px 100px 100px 100px 100px;
+				position: relative;
+				height: 60em;
+				width: 70%;
+				text-align: center;
+				margin-top: 30px; 
+				margin-bottom: 30px; 
+				background-image:linear-gradient(to right, #3A3227, #757762, #51422D);
+			}
+			.invoice-header  {
+				grid-column:1/6;
+				grid-rows:1/3;
+				padding: 8px;
+				height:100%
+				width:100%;
+			}
+
+			/* Position the close button (top right corner) */
+			.invoice-overlay .closebtn {
+			  position: absolute;
+			  top: 20px;
+			  right: 45px;
+			  font-size: 60px;
+			  text-decoration:none;
+			  color: orange;
+			}
+
+			/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+			@media screen and (max-height: 450px) {
+			  .invoice-overlay a {font-size: 20px}
+			  .invoice-overlay .closebtn {
+				font-size: 40px;
+				top: 15px;
+				
+				right: 35px;
+			  }
+			}
+			#invoice-button{
+				background-color:orange;
+				color:black;
+				font-family:"Ailerons";
+				float:right;
+				padding:5px;
+				margin-top:20px;
+			}
+			#invoice-logo1{
+				width:100%;
+			}
+			.invoice-logo1{
+				padding:5px;
+				width:100%;
+				border-right:1px orange solid;
+			}
+			.invoice-header-content{
+				grid-column:6/12;
+				grid-row:1/2;
+				padding:10px;
+				font-size: 120%;
+			}
+			#date{
+				font-family:"Ailerons";
+				color:white;
+				margin-top:10px;
+			}
+			.invoice-title{
+				grid-column:1/12;
+				grid-row:3/4;
+				font-size: 280%;
+				font-family:"Ailerons";
+				color:orange;
+			}
+			.invoice-name-head{
+				grid-row:5/6;
+				grid-column:1/9;
+				border:orange 1px solid;
+				margin:0 2em;
+			}
+			.invoice-name-head strong{
+				font-family:"Ailerons";
+				color:white;
+				font-size:200%;
+				width:100%;
+			}
+			.invoice-price-head{
+				grid-row:5/6;
+				grid-column:9/13;
+				border:orange 1px solid;
+				margin:0 2em;
+			}
+			.invoice-price-head strong{
+				font-family:"Ailerons";
+				color:white;
+				font-size:200%;
+				width:100%;
+			}
+			.invoice-route-name{
+				grid-column: 1/9;
+				grid-row:7/8;
+				border-bottom: orange 1px solid;
+				
+			}
+			.invoice-route-name p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.invoice-route-price{
+				grid-row:7/8;
+				grid-column:9/13;
+				margin:0 2em;
+				border-bottom: orange 1px solid;
+			}
+			.invoice-route-price p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.invoice-ship{
+				grid-column: 1/9;
+				grid-row:8/9;
+				border-bottom: orange 1px solid;
+			}
+			.invoice-ship p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.invoice-ship-price{
+				grid-row:8/9;
+				grid-column:9/13;
+				margin:0 2em;
+				border-bottom: orange 1px solid;
+			}
+			.invoice-ship-price p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.invoice-people{
+				grid-row:9/10;
+				grid-column:1/13;
+				margin:0 2em;
+				border-bottom: orange 3px solid;
+			}
+			.invoice-people p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.totalname{
+				grid-column: 1/9;
+				grid-row:10/11;
+			}
+			.totalname p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+			}
+			.totalnamePrice{
+				grid-row:10/11;
+				grid-column:9/13;
+				margin:0 2em;
+				font-size:120%:
+			}
+			.totalnamePrice p{
+				font-family:"Ailerons";
+				color:white;
+				font-size:140%;
+				width:100%;
+				font-size:120%:
+			}
+			
+		</style>
+	</head>
+	<body>
+	<div class="topnav" id="myTopnav">
+		<img src="logowhite.png" id="navlogo">
+		<a href="booking.html" class="active">Booking</a>
+		<a href="fleet.html">Fleet</a>
+		<a href="mainpage.html">Home</a>
+		<a href="javascript:void(0);" class="icon" onclick="Function()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+	<div class="container1">
+		<div class="pageHeading">
+			<h1>BOOKINGS</h1>
+			<span id="error"></span>
+			<div id="step1"><h2>Step 1</h2><p>Select Source and Destination</p><button onclick="on()">List of spaceports</button></div>
+		</div>
+	</div>
+	<div class="page1">
+		<div class="grid-container-dest">
+			<span class="grid-item heading blackrow"><strong>Source</strong></span>
+			<span class="grid-item heading blackrow"><strong>Destination</strong></span>
+			<span class="grid-item heading blackrow"><strong>Base Price</strong></span>
+			<span class="grid-item input"><input type="text" id="source" name="source"></span>
+			<span class="grid-item input"><input type="text" id="dest" name="dest"></span>
+			<span class="grid-item price"><p id="price1">0.00 Credits</p></span>
+			<span class="grid-item button1"><button id="calculate1" onclick="getprice1()">Calculate</button></span>
+			
+		</div>
+	
+	</div>
+	<div class="container1">
+		<div class="pageHeading">
+			<div id="step2"><h2>Step 2</h2><p >Choose Spacecraft</p></div>
+		</div>
+	</div>
+	<div class="page2" id="page2">
+		<div class="grid-container-dest2">
+			<span class="grid-item heading blackrow"><strong>Spacecraft Class</strong></span>
+			<span class="grid-item heading blackrow"><strong>Additional Price</strong></span>
+			<span id="elon" class="grid-item ships" onclick="addToPrice1(elon)">Elon</span>
+			<span class="grid-item price" >100 Credits</span>
+			<span id="bond" class="grid-item ships blackrow" onclick="addToPrice1(bond)">Bond</span>
+			<span class="grid-item price blackrow">200 Credits</span>
+			<span id="vader" class="grid-item ships" onclick="addToPrice1(vader)">Vader</span>
+			<span class="grid-item price" onclick="addToPrice1()">400 Credits</span>
+			<span class="grid-item pricerow" id="price2">0.00 Credits</span>
+		</div>
+	</div>	
+	<div class="container1">
+		<div class="pageHeading">
+			<div id="step3"><h2>Step 3</h2><p>Final Step</p></div>
+		</div>
+		<div class="page3" id="page3">
+			<div class="container">
+			  <form>
+				<div class="row">
+				  <div class="col-25">
+					<label for="Number">Number of People</label>
+				  </div>
+				  <div class="col-75">
+					<input type="number" oninput="addToPrice2()" id="Number">
+				  </div>
+				</div>
+				<div class="row">
+					<div class="col-25">
+						<span>Total Cost</span>
+					  </div>
+					<div class="col-75">
+						<span id="priceaddon">0.00 Credits</span>
+					</div>
+					<a onclick = "openNav()" id="invoice-button">Generate Invoice</a>  
+				</div>
+			  </form>
+			  
+			</div>
+		
+		</div>
+	</div>
+	<div id="overlay" onclick="off()">
+		<div id="text">
+			<sup>Primary Spaceports are costlier to dock at than Secondary Spaceports.</sup>
+			<h2>Primary Spaceports:</h2>
+			<ol>
+				<li>Exodus A</li>
+				<li>Exodus B</li>
+				<li>Colony 2B</li>
+			</ol>
+			<h2>Secondary Spaceports:</h2>
+			<ol>
+				<li>Colony 1</li>
+				<li>Colony 2A</li>
+				<li>Colony 2C</li>
+			</ol>
+		</div>
+	</div>
+	
+
+		<div id="myNav" class="invoice-overlay">
+		  
+
+		  <!-- Overlay content -->
+		  <div class="invoice-content">
+				<div class="invoice-header">
+					<div class="invoice-logo1">
+						<img id="invoice-logo1" src="logowhite.png">
+					</div>
+				</div>
+				<div class="invoice-header-content">
+					<span id="date">Date:</span><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>	
+				</div>
+				<div class="invoice-title">
+					<span id="title">Invoice</span>
+				</div>
+				<div class="invoice-name-head">
+					<strong>Details</strong>
+				</div>
+				<div class="invoice-price-head">
+					<strong>Price</strong>
+				</div>
+				<div class="invoice-route-name">
+					<p id="route-name"></p>
+				</div>
+				<div class="invoice-route-price">
+					<p id="route-price"></p>
+				</div>
+				<div class="invoice-ship">
+					<p id="shipName"></p>
+				</div>
+				<div class="invoice-ship-price">
+					<p id="ship-price"></p>
+				</div>
+				<div class="invoice-people">
+					<p id="peopleOnShip"></p>
+				</div>
+				<div class="totalname">
+					<p><strong>Total</strong></p>
+				</div>
+				<div class="totalnamePrice">
+					<strong><p id="TotalPrice"></p></strong>
+				</div>
+				</div>
+				
+		  </div>
+
+		
+	
+	</div>
+	<script>
+		var price1 = 0;
+		var price2 = 0;
+		var price3 = 0;
+		var index0 = 0;
+		var index1 = 0;
+		var zindex;
+		const shipPrice = [{name:"elon", price:100}, {name:"bond", price:200},{name:"vader", price:400}];
+		var sourceArray = [{name:"Exodus A", dockcharge:500, coordinateX:213, coordinateY:0}, {name:"Exodus B", dockcharge:700, coordinateX:0, coordinateY:879}, {name:"Colony 2B", dockcharge:400,coordinateX:0, coordinateY:0}, {name:"Colony 1", dockcharge:200, coordinateX:213, coordinateY:200}, {name:"Colony 2A", dockcharge:200, coordinateX:14, coordinateY:874}, {name:"Colony 2C", dockcharge:100, coordinateX:600, coordinateY:1458}];
+		
+		function Function() {
+			var x = document.getElementById("myTopnav");
+			if (x.className === "topnav") {
+			x.className += " responsive";
+		  } else {
+			x.className = "topnav";
+		  }
+		}
+		function on() {
+		  document.getElementById("overlay").style.display = "block";
+		}
+		function off() {
+		  document.getElementById("overlay").style.display = "none";
+		}
+		
+		function getprice1(){
+			var ratePerUnit = 0.5;
+			var source = document.getElementById("source");
+			var dest = document.getElementById("dest");
+			var SourceLocation = source.value;
+			var DestinationLocation = dest.value;
+			var found1 = false;
+			var found2 = false;
+			var price2flag = false;
+			
+			var SourceLocation = (SourceLocation.toLowerCase()).split(" ").join("");
+			var DestinationLocation = (DestinationLocation.toLowerCase()).split(" ").join("");
+			for(var i=0;i<=5;i++){
+				if(SourceLocation == ((sourceArray[i].name).toLowerCase()).split(" ").join("")){
+					found1 = true;
+					index0 = i;
+			}}
+			
+			for(var j=0;j<=5;j++){
+				if(DestinationLocation == ((sourceArray[j].name).toLowerCase()).split(" ").join("")){
+					found2 = true;
+					index1 = j;
+				}
+			}
+			if(found1 == false || found2 == false){
+				document.getElementById("price1").innerHTML ="";
+				document.getElementById("error").style.display = "inline";
+				document.getElementById("error").innerHTML = "Please check the names from given list and try again";
+			}else{
+			document.getElementById("error").style.display = "none";
+				document.getElementById("error").innerHTML ="";
+				var Xdistance = (sourceArray[index0].coordinateX) - (sourceArray[index1].coordinateX);
+				var Ydistance = (sourceArray[index0].coordinateY) - (sourceArray[index1].coordinateY);
+				var distance = Math.sqrt( Xdistance * Xdistance + Ydistance * Ydistance );
+				if(distance==0){
+					price1 = 0;
+					document.getElementById("price1").innerHTML = price1.toFixed(2) + " Credits";
+					addToPrice2();
+				}else{
+					price1 = sourceArray[index1].dockcharge + (distance * ratePerUnit);
+					document.getElementById("price1").innerHTML = price1.toFixed(0) + " Credits";
+					addToPrice2();					
+				}
+				
+			}
+		}
+		var elon = document.getElementById("elon");
+		var bond = document.getElementById("bond");
+		var vader = document.getElementById("vader");
+		var indiana = document.getElementById("indiana");
+		
+		var counter = 1;
+		var finalprice12;
+		
+		
+		
+		
+		function addToPrice1(element){
+			for(var k=0; k < (element.classList).length;k++){
+				if(element.classList[k] == "greyrow"){
+					price2flag = false;
+					break;
+				}else{
+					price2flag = true;
+				}
+			}
+			if(price2flag == true){
+				element.classList.add("greyrow");
+				for(var z=0; z < shipPrice.length; z++)
+				{
+					if(shipPrice[z].name == (element.innerHTML).toLowerCase()){
+						zindex = z;
+						
+					}
+				}
+				
+				price2 = shipPrice[zindex].price;
+				document.getElementById("price2").innerHTML = price2 + ".00 Credits";
+				addToPrice2();
+			}
+			else{
+				element.classList.remove("greyrow");
+				price2 = 0;
+				document.getElementById("price2").innerHTML =  "0.00 Credits";
+				addToPrice2();	
+			}
+		}
+		
+		
+		var numberPeople = document.getElementById("Number");
+		var numberofpeople = numberPeople.value;
+		function addToPrice2(){
+			if(price1 != 0 && price2 != 0){
+				var rateperperson = price2+price1;
+				numberofpeople = numberPeople.value;
+				price3 = rateperperson * numberofpeople;
+				document.getElementById("priceaddon").innerHTML = price3.toFixed(2)+" Credits";
+			}else{
+				document.getElementById("priceaddon").innerHTML = "0.00 Credits";
+			}	
+		}
+		function generateInvoice(){
+			document.getElementById("route-name").innerHTML = sourceArray[index0].name + "  ->  " + sourceArray[index1].name;
+			document.getElementById("route-price").innerHTML = price1.toFixed(2);
+			document.getElementById("shipName").innerHTML = shipPrice[zindex].name;
+			document.getElementById("ship-price").innerHTML = (shipPrice[zindex].price).toFixed(2);
+			document.getElementById("peopleOnShip").innerHTML = "Number of people = "+numberofpeople;
+			document.getElementById("TotalPrice").innerHTML = price3.toFixed(2) +" Credits";
+		}
+		
+		function openNav() {
+			
+			document.getElementById("myNav").style.width = "100%";
+			var d = new Date();
+			document.getElementById("date").innerHTML ="Date: "+ d.toDateString();
+			generateInvoice();
+		}
+
+		/* Close when someone clicks on the "x" symbol inside the overlay */
+		function closeNav() {
+		  document.getElementById("myNav").style.width = "0%";
+		}
+	</script>
+	</body>
+
+</html>
